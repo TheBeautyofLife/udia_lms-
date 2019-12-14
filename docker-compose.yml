@@ -1,0 +1,29 @@
+version: '3.6'
+
+services:
+
+  lms:
+    container_name: lms
+    build:
+      context: ./
+      dockerfile: /lms/Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '5000:5000'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  admin:
+    container_name: admin
+    build:
+      context: ./
+      dockerfile: /admin/Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '4000:4000'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
