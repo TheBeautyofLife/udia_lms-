@@ -84,17 +84,17 @@ export default [
   {
     path: '/student/quiz',
     name: 'quiz-menu',
-    component: () => import('./views/assignment.vue')
+    component: () => import('./views/quizs/quiz_manu.vue')
   },
   {
     path: '/student/quiz/quiz-1',
-    name: 'quiz-menu',
-    component: () => import('./views/quizs/id/quiz_id.vue')
+    name: 'quiz-1',
+    component: () => import('./views/quizs/list/quiz_id.vue')
   },
   {
     path: '/student/quiz/quiz-2',
-    name: 'quiz-menu',
-    component: () => import('./views/quizs/id/quiz_id_2.vue')
+    name: 'quiz-2',
+    component: () => import('./views/quizs/list/quiz_id_2.vue')
   },
   {
     path: '/student/grades',

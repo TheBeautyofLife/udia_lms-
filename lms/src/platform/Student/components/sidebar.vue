@@ -3,7 +3,7 @@
         <!-- li*7 creating multiple li items shortcut -->
         <li><a href="/student/home">Home</a></li>
         <li><a href="/student/assignments">Assignments</a></li>
-        <li><a href="/student/quizs">Quizs</a></li>
+        <li><a href="/student/quiz">Quiz & Tests</a></li>
         <li><a href="/student/course_material">Course Material</a></li>
         <li><a href="/student/files">Files</a></li>
         <li><a href="/student/grades">Grades</a></li>

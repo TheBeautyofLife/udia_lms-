@@ -1,5 +1,5 @@
 <template>
-  <div class="assignments">
+  <div class="quiz">
     <dheader />
     
     <!-- flex wrapper -->
@@ -45,32 +45,8 @@
                                     <v-icon :color="item.iconClass" class="pr-4" v-text="item.icon"></v-icon>
 
                                     <v-list-item-content>
-                       ~                 <v-list-item-title class="text" v-text="item.title"></v-list-item-title>
+                                     <v-list-item-title class="text" v-text="item.title"></v-list-item-title>
                                         <v-list-item-subtitle class="black--text" v-text="item.subtitle"></v-list-item-subtitle>
-                                    </v-list-item-content>
-
-                                    <v-list-item-action>
-                                        <v-icon color="grey lighten-1">mdi-information</v-icon>
-                                    </v-list-item-action>
-                                </v-list-item>
-                            </v-list>
-                        </v-expansion-panel-content>
-                    </v-expansion-panel>
-
-                    <v-expansion-panel class="mb-4">
-                        <v-expansion-panel-header class="blue lighten-4" v-slot="{ open }">
-                            <v-row no-gutters>
-                                <v-col cols="4" class="subtitle-1">No Date Assignments</v-col>
-                            </v-row>
-                        </v-expansion-panel-header>
-
-                        <v-expansion-panel-content>
-                            <v-list one-line rounded>
-                                <v-list-item v-for="item in nodate" :key="item.title" :to="item.link">
-                                    <v-icon :color="item.iconClass" class="pr-4" v-text="item.icon"></v-icon>
-
-                                    <v-list-item-content>
-                                        <v-list-item-title class="text">Reading Assessment: {{item.title}}</v-list-item-title>
                                     </v-list-item-content>
 
                                     <v-list-item-action>
@@ -92,7 +68,7 @@
 </template>
 
 <script> 
-import dheader from '../../dheadercomponents/dheader'
+import dheader from '../../components/dheader'
 import rightNote from '../../components/notification1'
 import snackbar from '../../components/snackbar'
 import sidebar from '../../components/sidebar'
@@ -130,12 +106,8 @@ import sidebar from '../../components/sidebar'
         customDiv: false,
 
         overdue: [
-            { icon: 'mdi-file', iconClass: 'black', title: 'Assignment 1', subtitle: 'Due Jan 9, 2014 18:59', link: '/student/quiz/quiz-1'},
-            { icon: 'mdi-file', iconClass: 'black', title: 'Assignment 2', subtitle: 'Due Jan 17, 2014 00:00', link: '/student/quiz/quiz-2'},
-        ],
-        nodate: [
-            { icon: 'mdi-file', iconClass: 'black', title: 'SOAR', link: '#'},
-            { icon: 'mdi-file', iconClass: 'black', title: 'Personal Finance for Dummies', link: '#'}
+            { icon: 'mdi-file', iconClass: 'black', title: 'Quiz 1', subtitle: 'Due Jan 9, 2014 18:59', link: '/student/quiz/quiz-1'},
+            { icon: 'mdi-file', iconClass: 'black', title: 'Quiz 2', subtitle: 'Due Jan 17, 2014 00:00', link: '/student/quiz/quiz-2'}
         ],
     }),
 
