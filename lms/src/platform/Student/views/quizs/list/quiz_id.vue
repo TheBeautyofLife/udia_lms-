@@ -3,7 +3,7 @@
     <dheader />
     
     <!-- flex wrapper -->
-    <div class="wrapper d-flex justify-lg-space-between">
+    <div class="wrapper d-flex justify-sm-space-between">
         <div class="snackbar" :class="{'snackbarlong' : terms ===true}">
             <snackbar />
         </div>
@@ -13,7 +13,7 @@
         </div>
     
 
-        <div class="main_content">
+        <div class="main_content mr-12">
             <div class="divider">
                 <v-breadcrumbs :items="items" :divider="divider" class="breadcrumb">
                     <template v-if="customDiv" v-slot:divider>
@@ -63,7 +63,7 @@
 
 
                     <!-- success dialog -->
-                    <v-dialog v-model="dialog" max-width="800">
+                    <v-dialog v-model="dialog" max-width="700">
                         <div class="white modal">
                             <div class="close">
                                 <v-btn class="icon" icon @click.stop="dialog = false">
@@ -109,7 +109,7 @@
         </div>
 
         <div class="notification">
-            <rightNote />
+           
         </div>
     </div>
   </div>
@@ -117,14 +117,14 @@
 
 <script> 
 import dheader from '../../../components/dheader'
-import rightNote from '../../../components/notification1'
+//import rightNote from '../../../components/notification1'
 import snackbar from '../../../components/snackbar'
 import sidebar from '../../../components/sidebar'
 
   export default {
     components: {
         dheader,
-        rightNote,
+       // rightNote,
         snackbar,
         sidebar
     },
@@ -176,16 +176,16 @@ import sidebar from '../../../components/sidebar'
 .sidebar {
     position: relative;
     height: 100%;
-    width: 70px;
-    padding: 100px 0;
+    width: 20px;
+    padding: 90px 0;
     font-size: 25px;    
 }
 
 .main_content {
     padding: 30px;
-    width: 55%;
+    width: 70%;
     position: relative;
-    left: 7%;
+    left: 3%;
     margin: 30px 80px;
 } 
 

@@ -108,6 +108,7 @@
                             <h3>You have successfully enrolled</h3>
                             <p>You can click here to go back</p>
                             
+                            
                             <div class="buttons d-flex justify-center align-center">
                                 <v-btn dark depressed type="submit" value="submit" class="blue ma-10" @click.stop="dialog = false">Go Back</v-btn>
                             </div>
