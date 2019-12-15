@@ -1,0 +1,17 @@
+{
+  "name": "udia_lms",
+  "version": "1.0.0",
+  "description": "Udia's institution based learning system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "learning",
+    "system",
+    "lms",
+    "udia"
+  ],
+  "author": "Firefly Edtech Solution",
+  "license": "MIT"
+}

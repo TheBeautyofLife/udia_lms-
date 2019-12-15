@@ -1,0 +1,16 @@
+version: '3.6'
+
+services:
+
+  admin:
+    container_name: admin
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '4001:4000'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
