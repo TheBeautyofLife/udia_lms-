@@ -53,7 +53,7 @@
 
         </div>
 
-        <div class="notification">
+        <div class="notification mr-11" style="width:280px;">
             <rightNote />
         </div>
     </div>
@@ -111,7 +111,7 @@ import sidebar from '../../../../components/sidebar'
                 status: 'submitted',
                 colour: 'green',
                 icon: 'mdi-check-circle',
-                to: '/instructor/marks/all-view-submitted/student_id'
+                to: '/instructor/marks/all-view-submitted/student_id/'
             },
              {
                 firstname: 'Lucy',
@@ -135,7 +135,7 @@ import sidebar from '../../../../components/sidebar'
 
 <style scoped>
 .snackbar {
-    height: 110vh;
+    height: 140vh;
 }
 
 .snackbarlong {

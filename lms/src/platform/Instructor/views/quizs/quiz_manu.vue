@@ -31,7 +31,7 @@
             <div class="list">
                 <v-expansion-panels :search="search" class="expand">
                     <v-expansion-panel class="mt-4">
-                        <v-expansion-panel-header class="blue lighten-4">
+                        <v-expansion-panel-header class="teal lighten-5">
                             <template v-slot:default="{ open }">
                                 <v-row no-gutters>
                                     <v-col cols="4" class="subtitle-1 ">Quiz</v-col>
@@ -60,9 +60,7 @@
             </div>
         </div>
 
-        <div class="notification">
-            <rightNote />
-        </div>
+        <div class="notification" style="width:280px;"></div>
     </div>
   </div>
 </template>
@@ -95,7 +93,7 @@ import sidebar from '../../components/sidebar'
                 href: '/home',
             },
             {
-                text: 'Assignments',
+                text: 'Quiz',
                 disabled: true,
                 href: '#',
             }
@@ -106,7 +104,8 @@ import sidebar from '../../components/sidebar'
         customDiv: false,
 
         overdue: [
-            { icon: 'mdi-file', iconClass: 'black', title: 'Quiz 1', subtitle: 'Due Jan 9, 2014 18:59', link: '/instructor/quiz/quiz-1'}
+            { icon: 'mdi-file', iconClass: 'black', title: 'Quiz 1', subtitle: 'Due Jan 9, 2019 18:59', link: '/instructor/quiz/quiz-1'},
+            { icon: 'mdi-file', iconClass: 'black', title: 'Quiz 2', subtitle: 'Due Jan 10, 2019 15:00', link: '/instructor/quiz/quiz-2'}
         ],
     }),
 
@@ -120,7 +119,7 @@ import sidebar from '../../components/sidebar'
 
 <style scoped>
 .snackbar {
-    height: 100vh;
+    height: 140vh;
 }
 
 .sidebar {
@@ -150,7 +149,7 @@ import sidebar from '../../components/sidebar'
 }
 
 .expand {
-  width: 90%;
+  width: 100%;
 }
 
 .textfield {

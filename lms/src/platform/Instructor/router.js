@@ -54,6 +54,7 @@ export default [
     name: 'home',
     component: home
   },
+  // quiz
   {
     path: '/instructor/quiz',
     name: 'quiz-menu',
@@ -69,6 +70,19 @@ export default [
     name: 'quiz-2',
     component: () => import('./views/quizs/list/quiz_id_2.vue')
   },
+
+  // marks quiz
+  {
+    path: '/instructor/quiz/mark/',
+    name: 'quiz-2',
+    component: () => import('./views/quizs/list/res/quiz_id_res.vue')
+  },
+  {
+    path: '/instructor/quiz/mark/1/student_id',
+    name: 'quiz-2',
+    component: () => import('./views/quizs/list/res/id/quiz_student-id.vue')
+  },
+
   {
     path: '/instructor/profile',
     name: 'profile',
@@ -94,6 +108,8 @@ export default [
     name: 'course_material',
     component: () => import('./views/course/notes/id/course_material.vue')
   },
+
+  // assignments
   {
     path: '/instructor/assignments',
     name: 'assignments',
@@ -115,18 +131,33 @@ export default [
     component: () => import('./views/course/activities/id/assignment_3.vue')
   },
 
-  // marks
+  // marks assignments
   {
     path: '/instructor/marks/all-view-submitted',
     name: 'marks',
     component: () => import('./views/course/activities/mark_1/view_submitted_all.vue')
   },
-
   {
-    path: '/instructor/marks/all-view-submitted/student_id',
+    path: '/instructor/marks/all-view-submitted/student_id/',
     name: 'marks',
-    component: () => import('./views/course/activities/mark_1/id/submitted.vue')
+    component: () => import('./views/course/activities/mark_1/submitted_help.vue')
   },
+  {
+    path: '/instructor/marks/all-view-submitted/student_id/set1',
+    name: 'marks',
+    component: () => import('./views/course/activities/mark_1/id/submitted_1.vue')
+  },
+  {
+    path: '/instructor/marks/all-view-submitted/student_id/set2',
+    name: 'marks',
+    component: () => import('./views/course/activities/mark_1/id/submitted_2.vue')
+  },
+  {
+    path: '/instructor/marks/all-view-submitted/student_id/form_submitted',
+    name: 'marks',
+    component: () => import('./views/course/activities/mark_1/submitted_complete.vue')
+  },
+
   {
     path: '/instructor/students',
     name: 'students',

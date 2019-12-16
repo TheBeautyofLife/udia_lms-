@@ -61,7 +61,7 @@
                     <v-btn color="#038A99" class="ml-3 mt-7 font-weight-medium" @click="editQues_submitted"  dark depressed>Edit</v-btn> 
                 </v-layout>
             </div>  
-             <v-dialog v-model="dialog" max-width="800">
+             <v-dialog v-model="dialog" max-width="600">
                      <div class="white modal">
                         <div class="close">
                             <v-btn class="icon ma-2 mr-8" icon @click.stop="dialog = false">
@@ -72,7 +72,7 @@
 
                         <v-layout column wrap mt-12 justify-center>
                             <v-icon color="orange" size="90">mdi-cloud-check</v-icon>
-                            <h3>You have successfully enrolled</h3>
+                            <h3>You have successfully submitted</h3>
                             <p>You can click here to go back</p>
                         </v-layout>
 
@@ -84,7 +84,7 @@
 
         </div>
 
-        <div class="notification">
+        <div class="notification mr-11" style="width:280px;">
             <rightNote />
         </div>
     </div>
@@ -163,17 +163,11 @@ import sidebar from '../../../../components/sidebar'
         customDiv: false,
         Deadline: '09 January 2019 22:59',
         content: ` 
-                     1. Objective: Use techniology to move beyond textbook-based instruction.
+                  1. Objective: Use techniology to move beyond textbook-based instruction.
                     in your historyclass are having difficulty understanding the significance of WWII
-                    What activities would help students get more engaged? (Choose 2 answers) <strong>(p. 15)</strong>
+                    What activities would help students get more engaged? <strong>(p. 15)</strong>
+                    <br /><br />
 
-                    <ul>
-                        <li> Students create YouTube videos describing key battles in WWII </li>
-                        <li> Teacher creates a final exam in Forms to give a grade on what the students know </li>
-                        <li> Students use the explore tool to find out more inofrmation in Docs </li>
-                        <li> Students answer questions at the end of the WWII chapter </li>
-                    </ul>
-                    <br />
                   2. What are these "great oppressions" preparing the world for? <strong>(p. 5)</strong> <br /><br />
                 
                   3.  Describe the realtionship between the Most Great Civilization, the Most Great Justice and the Most Great Peace.
@@ -183,8 +177,6 @@ import sidebar from '../../../../components/sidebar'
                     <br /><br />What is Eclectism? <br />
                     How does it differ from Syncretism? <br />
                     How would you answer these charges? <br />
-                    What is the nature of the charges most recently made against the faith in Iran? <br />
-                    Which institutions and groups of people do you think will attack the Faith in the future? <br />
                     
                 `
     }),
@@ -208,7 +200,7 @@ import sidebar from '../../../../components/sidebar'
 
 <style scoped>
 .snackbar {
-    height: 110vh;
+    height: 140vh;
 }
 
 .snackbarlong {
@@ -266,7 +258,7 @@ import sidebar from '../../../../components/sidebar'
  }
 
  .modal {
-    height: 700px !important;
+    height: 400px !important;
     text-align: center;
 }
 

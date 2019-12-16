@@ -148,7 +148,7 @@ import sidebar from '../../../components/sidebar'
 
 <style scoped>
 .snackbar {
-    height: 100vh;
+    height: 130vh;
 }
 
 .sidebar {

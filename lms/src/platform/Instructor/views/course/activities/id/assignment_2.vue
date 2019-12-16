@@ -61,7 +61,7 @@
                     <v-btn color="#038A99" class="ml-3 mt-7 font-weight-medium" @click="editQues_submitted"  dark depressed>Edit</v-btn> 
                 </v-layout>
             </div>  
-             <v-dialog v-model="dialog" max-width="800">
+             <v-dialog v-model="dialog" max-width="600">
                      <div class="white modal">
                         <div class="close">
                             <v-btn class="icon ma-2 mr-8" icon @click.stop="dialog = false">
@@ -72,7 +72,7 @@
 
                         <v-layout column wrap mt-12 justify-center>
                             <v-icon color="orange" size="90">mdi-cloud-check</v-icon>
-                            <h3>You have successfully enrolled</h3>
+                            <h3>You have successfully submitted</h3>
                             <p>You can click here to go back</p>
                         </v-layout>
 
@@ -250,7 +250,7 @@ import sidebar from '../../../../components/sidebar'
  }
 
  .modal {
-    height: 700px !important;
+    height: 400px !important;
     text-align: center;
 }
 

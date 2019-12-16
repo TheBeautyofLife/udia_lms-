@@ -53,22 +53,19 @@
             </div>
             <v-divider></v-divider>
             <v-layout row mt-8>
-                <v-flex xs12 md6>
+                <v-flex xs12 md7>
                     <div class="tiptap-vuetify-editor__content" v-html="response"/>
                 </v-flex>
                 <v-flex xs12 md5 v-show="isEditingQues">
                     <p class="ml-2 mb-3 title">Marks</p>
-                    <v-card class="ml-2" height="500">
-                        Writing style
+                    <v-layout column>
+                        <v-card class="ml-2" height="420">
+                        <p class="pl-4 pt-4">Question 1</p>
                     </v-card>
-                </v-flex>
-                
-                 <v-flex xs12 md5 v-show="!isEditingQues">
-                    <p class="ml-2 mb-3 title">Marks</p>
-                    <v-card class="ml-2" height="500">
-                        
-
+                    <v-card class="ml-2 mt-5" height="420">
+                        <p class="pl-4 pt-4">Question 2</p>
                     </v-card>
+                    </v-layout>
                 </v-flex>
 
             </v-layout> 
@@ -89,29 +86,9 @@
 
             <v-layout justify-end>
                  <v-btn color="grey" class="ml-3 mt-7 font-weight-medium" @click="editQues"  dark depressed>Edit</v-btn> 
-              <v-btn color="#038A99" class="ml-3 mt-7 font-weight-medium" @click="editQues_submitted"  dark depressed>Submit</v-btn> 
+              <v-btn color="#038A99" class="ml-3 mt-7 font-weight-medium" @click="editQues_submitted"  dark depressed>Next</v-btn> 
             </v-layout>
 
-             <v-dialog v-model="dialog" max-width="800">
-                     <div class="white modal">
-                        <div class="close">
-                            <v-btn class="icon ma-2 mr-8" icon @click.stop="dialog = false">
-                                <v-icon size="30">mdi-close</v-icon>
-                            </v-btn>
-                        </div>
-                        <v-divider></v-divider>
-
-                        <v-layout column wrap mt-12 justify-center>
-                            <v-icon color="orange" size="90">mdi-cloud-check</v-icon>
-                            <h3>You have successfully enrolled</h3>
-                            <p>You can click here to go back</p>
-                        </v-layout>
-
-                        <div class="buttons d-flex justify-center align-center">
-                            <v-btn dark depressed type="submit" value="submit" class="blue ma-10" @click.stop="dialog = false">Go Back</v-btn>
-                        </div>
-                    </div>
-                </v-dialog>
 
         </div>
 
@@ -124,10 +101,10 @@
 
 <script> 
 import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, Paragraph, BulletList, OrderedList, ListItem, Link, Blockquote, HardBreak, HorizontalRule, History } from 'tiptap-vuetify'
-import dheader from '../../../../../components/dheader'
-import rightNote from '../../../../../components/notification1'
-import snackbar from '../../../../../components/snackbar'
-import sidebar from '../../../../../components/sidebar'
+import dheader from '../../../../components/dheader'
+import rightNote from '../../../../components/notification1'
+import snackbar from '../../../../components/snackbar'
+import sidebar from '../../../../components/sidebar'
 
   export default {
     components: {
@@ -140,7 +117,7 @@ import sidebar from '../../../../../components/sidebar'
 
     data: () => ({
         dialog: false,
-        isEditingQues: true,
+        isEditingQues: false,
 
         extensions: [
       History,
@@ -209,32 +186,11 @@ import sidebar from '../../../../../components/sidebar'
                     <br /><br />
 
                     <div style="border:0.2px solid #D9D9D9; padding:20px;margin:3px">
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                         Students create YouTube videos describing key battles in WWII
-                    <label class="container"><br /><br />
-                   
 
-                    </label>
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        Teacher creates a final exam in Forms to give a grade on what the students know
-                    </label><br /><br />
+                    Quisque lacinia, mi vehicula vulputate ornare, metus magna eleifend nisi, sed consequat justo metus sit amet lectus. Nam dignissim, justo egestas semper scelerisque, nunc arcu lobortis ex, in iaculis purus purus nec urna. Nam ut auctor ligula. Quisque auctor in augue non pretium. Aliquam auctor consectetur viverra. Duis porttitor ex id orci dapibus euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam quis luctus metus. Vestibulum vehicula mi vel sem semper sodales. Pellentesque imperdiet id mauris non vehicula.
+                    
+                     </div>
 
-                    <label class="container">
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                        Students use the explore tool to find out more inofrmation in Docs
-                    </label><br /><br />
-                     <label class="container">
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                        Students use the explore tool to find out more inofrmation in Docs
-                    </label><br />
-
-                    </div>
                     <br />
                     2. <em style="color:#038A99">What are these "great oppressions" preparing the world for?
                     
@@ -252,7 +208,8 @@ import sidebar from '../../../../../components/sidebar'
         },
         editQues_submitted () {
             this.isEditingQues = false;
-            this.dialog = true;
+            // this.dialog = true;
+            this.$router.push({path: '/instructor/marks/all-view-submitted/student_id/set2',})
         }
     }
   }
@@ -264,7 +221,7 @@ import sidebar from '../../../../../components/sidebar'
 }
 
 .snackbarlong {
-    height: 190vh;
+    height: 250vh;
 }
 
 .sidebar {

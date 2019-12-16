@@ -1,5 +1,5 @@
 <template>
-  <div class="assignment">
+  <div class="quiz">
     <dheader />
     
     <!-- flex wrapper -->
@@ -22,124 +22,68 @@
                 </v-breadcrumbs>
             </div>
 
-            <div class="d-flex justify-lg-space-between">
+            <div class="d-flex justify-lg-space-between mt-6">
                 <h2 class="display-2 mb-3">Quiz 2</h2>
                 <v-spacer></v-spacer>
-                <v-btn color="blue" @click.stop="terms = true" :disabled="terms" dark depressed>Start Quiz</v-btn>
+                <v-btn color="blue" class="font-weight-bold" to="/instructor/marks/all-view-submitted"  dark depressed>Mark Quiz</v-btn>
+                 <v-btn color="grey" class="ml-3 font-weight-bold" @click="editQues"  dark depressed>Edit</v-btn>
             </div>
 
             <div class="d-flex justify-space-between mt-7">
                 <!-- display after submit is pressed -->
-                <p v-if="terms">Points: 10</p>
                 <v-spacer></v-spacer>
-                <p><strong>Due:</strong> 17 July 2019 22:59</p>
-                </div>
+                <v-layout row justify-end>
+                   <p v-show="!isEditing">
+                    <strong>Due:</strong> {{ Deadline }}
+                   </p>
+
+                    <span v-show="isEditing" class="mr-5 mb-1">
+                        <input class="grey lighten-3 editField ml-4" type="text" v-model="Deadline">
+                        <v-btn small icon @click="deActivateEditMode">
+                            <v-icon>mdi-calendar-check</v-icon>
+                        </v-btn>
+                    </span>
+
+                     <v-btn class="mr-2 mb-1" icon @click="activateEditMode">
+                     <v-icon>mdi-calendar-edit</v-icon>
+                   </v-btn>
+                 </v-layout>
+
+                 
+            </div>
             <v-divider></v-divider>
-            <ol type="1" class="mt-7">
-                <li>
-                    <p>Objective: Use techniology to move beyond textbook-based instruction.
-                    in your historyclass are having difficulty understanding the significance of WWII
-                    What activities would help students get more engaged? (Choose 2 answers)</p>
-                    <ol type="i">
-                        <li>Students create YouTube videos describing key battles in WWII</li>
-                        <li>Teacher creates a final exam in Forms to give a grade on what the students know</li>
-                        <li>Students use the explore tool to find out more inofrmation in Docs</li>
-                        <li><p>Students answer questions at the end of the WWII chapter</p></li>
-                    </ol>
-                </li>
-                <li>
-                    <p>What are these "great oppressions" preparing the world for? (p. 5)</p>
-                </li>
-                <li>
-                    <p>Describe the realtionship between the Most Great Civilization, the Most Great Justice and the Most Great Peace.<br>
-                    (p. 7) What is the Great Peace mentioned in the opening sentence of The Promise of World Peace</p>
-                </li>
-                <li>
-                    <p>What were the changes made against Faith? (p.7) What is Eclectism? How does it differ from Syncretism?
-                    How would you answer these charges? What is the nature of the charges most recently made against the faith in Iran?
-                    Which institutions and groups of people do you think will attack the Faith in the future?</p>
-                </li>
-            </ol>
-
-            <!-- display after the submit button is clicked -->
-            <v-card v-if="terms">
-                <v-tabs text color="#0d98ba">
-                    <v-tabs-slider></v-tabs-slider>
-                    <v-tab href="#tab-1">
-                        File Upload
-                    </v-tab>
-
-                    <v-tab href="#tab-2">
-                        Work Online
-                    </v-tab>
-
-                    <v-tab-item id="tab-1">
-                        <v-row>
-                            <v-col cols="12">
-                                <v-row>
-                                    <!-- file upload area -->
-                                    <div color="#F5F5F5" class="sheet_upload d-flex justify-center align-center">
-                                        <div>
-                                            <h2 class="grey--text">Drag & drop your files here,<br> or</h2><br>
-                                        </div>
-                                        <div>
-                                            <strong><i>File:</i></strong>
-                                            <v-btn color="grey" dark>choose file</v-btn>
-                                            <p class="grey--text">no file selected</p>
-                                        </div>
-                                    </div>
-                                    <v-spacer></v-spacer>
-                                    <v-btn depressed class="mr-7" dark color="orange" @click.stop="dialog = true">Submit</v-btn>
-                                </v-row>                             
-                            </v-col>
-                        </v-row>
-                    </v-tab-item>
-
-                    <!-- success dialog -->
-                    <v-dialog v-model="dialog" max-width="800">
-                        <div class="white modal">
-                            <div class="close">
-                                <v-btn class="icon" icon @click.stop="dialog = false">
-                                    <v-icon size="40">mdi-close</v-icon>
-                                </v-btn>
-                            </div>
-                            <v-divider></v-divider>
-                            <v-icon color="orange" size="90">mdi-cloud-check</v-icon>
-                            <h3>You have successfully enrolled</h3>
-                            <p>You can click here to go back</p>
-                            
-                            <div class="buttons d-flex justify-center align-center">
-                                <v-btn dark depressed type="submit" value="submit" class="blue ma-10" @click.stop="dialog = false">Go Back</v-btn>
-                            </div>
+            <v-layout mt-8 v-show="!isEditingQues">
+                <div class="tiptap-vuetify-editor__content" v-html="content"/>
+            </v-layout> 
+            <div v-show="isEditingQues">
+                <tiptap-vuetify v-model="content" :extensions="extensions"/>
+                <v-layout justify-end>
+                    <v-btn color="#038A99" class="ml-3 mt-7 font-weight-medium" @click="editQues_submitted"  dark depressed>Edit</v-btn> 
+                </v-layout>
+            </div>  
+             <v-dialog v-model="dialog" max-width="600">
+                     <div class="white modal">
+                        <div class="close">
+                            <v-btn class="icon ma-2 mr-8" icon @click.stop="dialog = false">
+                                <v-icon size="30">mdi-close</v-icon>
+                            </v-btn>
                         </div>
-                    </v-dialog>
+                        <v-divider></v-divider>
 
-                    <v-tab-item id="tab-2">
-                        <v-row>
-                            <v-col cols="12">
-                                <v-row>
-                                    <p class="pl-5">Copy and paste or type your submission right here</p>
-                                    <!-- write online area -->
-                                    <div color="#F5F5F5" class="sheet_upload d-flex justify-center align-center">
-                                        <div>
-                                            
-                                        </div>
-                                        
-                                        <div>
-                                            
-                                        </div>
-                                    </div>
-                                    <v-spacer></v-spacer>
-                                    <v-btn depressed class="mr-7" dark color="orange" @click.stop="dialog = true">Submit</v-btn>
-                                </v-row>
-                            </v-col>
-                        </v-row>
-                    </v-tab-item>
-                </v-tabs>
-            </v-card>
+                        <v-layout column wrap mt-12 justify-center>
+                            <v-icon color="orange" size="90">mdi-cloud-check</v-icon>
+                            <h3>You have successfully submitted</h3>
+                            <p>You can click here to go back</p>
+                        </v-layout>
+
+                        <div class="buttons d-flex justify-center align-center">
+                            <v-btn dark depressed type="submit" value="submit" class="blue ma-10" @click.stop="dialog = false">Go Back</v-btn>
+                        </div>
+                    </div>
+                </v-dialog>
         </div>
 
-        <div class="notification">
+        <div class="notification mr-11" style="width:280px;">
             <rightNote />
         </div>
     </div>
@@ -147,6 +91,7 @@
 </template>
 
 <script> 
+import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, Paragraph, BulletList, OrderedList, ListItem, Link, Blockquote, HardBreak, HorizontalRule, History } from 'tiptap-vuetify'
 import dheader from '../../../components/dheader'
 import rightNote from '../../../components/notification1'
 import snackbar from '../../../components/snackbar'
@@ -157,32 +102,56 @@ import sidebar from '../../../components/sidebar'
         dheader,
         rightNote,
         snackbar,
-        sidebar
+        sidebar,
+        TiptapVuetify
     },
 
     data: () => ({
-        dialog1: false,
         dialog: false,
         terms: false,
+        isEditing: false,
+        isEditingQues: false,
+
+        extensions: [
+      History,
+      Blockquote,
+      Link,
+      Underline,
+      Strike,
+      Italic,
+      ListItem,
+      BulletList,
+      OrderedList,
+      [Heading, {
+        options: {
+          levels: [1, 2, 3]
+        }
+      }],
+      Bold,
+      Code,
+      HorizontalRule,
+      Paragraph,
+      HardBreak
+    ],
 
         items: [
             {
                 text: 'Dashboard',
                 disabled: false,
-                href: '/student',
+                href: '/instructor',
             },
             {
                 text: 'Home',
                 disabled: false,
-                href: '/student/home',
+                href: '/instructor/home',
             },
             {
-                text: 'Assignments',
+                text: 'Quiz',
                 disabled: false,
-                href: '/student/assignments',
+                href: '/instructor/quiz',
             },
             {
-                text: '01',
+                text: '02',
                 disabled: true,
                 href: '#',
             }
@@ -190,14 +159,47 @@ import sidebar from '../../../components/sidebar'
 
         divider: '>',
         large: false,
-        customDiv: false
+        customDiv: false,
+        Deadline: '09 January 2019 22:59',
+        content: ` 
+                  1. Objective: Use techniology to move beyond textbook-based instruction.
+                    in your historyclass are having difficulty understanding the significance of WWII
+                    What activities would help students get more engaged? <strong>(p. 15)</strong>
+                    <br /><br />
+
+                  2. What are these "great oppressions" preparing the world for? <strong>(p. 5)</strong> <br /><br />
+                
+                  3.  Describe the realtionship between the Most Great Civilization, the Most Great Justice and the Most Great Peace.
+                     What is the Great Peace mentioned in the opening sentence of The Promise of World Peace <strong>(p. 7)</strong><br /><br />
+               
+                  4.What were the changes made against Faith? <strong>(p.7) </strong> 
+                    <br /><br />What is Eclectism? <br />
+                    How does it differ from Syncretism? <br />
+                    How would you answer these charges? <br />
+                    
+                `
     }),
+     methods: {
+        activateEditMode() {
+            this.isEditing = true
+        },
+        deActivateEditMode() {
+            this.isEditing = false
+        },
+        editQues () {
+            this.isEditingQues = true
+        },
+        editQues_submitted () {
+            this.isEditingQues = false;
+            this.dialog = true;
+        }
+    }
   }
 </script>
 
 <style scoped>
 .snackbar {
-    height: 110vh;
+    height: 140vh;
 }
 
 .snackbarlong {
@@ -255,7 +257,7 @@ import sidebar from '../../../components/sidebar'
  }
 
  .modal {
-    height: 700px !important;
+    height: 400px !important;
     text-align: center;
 }
 
