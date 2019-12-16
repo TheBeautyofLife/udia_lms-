@@ -3,7 +3,7 @@
         <dheader />
         <div class="wrapper d-flex justify-lg-space-between">
             <div class="snackbar">
-                <snackbar />
+                <snackbar style='overflow: hidden;' />
             </div>
 
             <div class="main-content">
@@ -18,28 +18,35 @@
                     <!-- main courses -->
                     <div class="main ml-10">
                         <div class="display-3">All Courses</div>
-                        <v-simple-table>
+                        <v-simple-table >
                             <template v-slot:default>
-                                <thead>
+                                <thead >
                                     <tr>
-                                        <th class="black--text headline">Course</th>
-                                        <th class="black--text headline">Code</th>
-                                        <th class="black--text headline">Stream</th>
-                                        <th class="black--text headline">Term</th>
-                                        <th class="black--text headline">Enrolled Date</th>
-                                        <th class="black--text headline">Enrolled</th>
+                                        <th class="black--text title mt-4">Course</th>
+                                        <th class="black--text title">Code</th>
+                                        <th class="black--text title">Stream</th>
+                                        <th class="black--text title">Term</th>
+                                        <th class="black--text title">Enrolled Date</th>
+                                        <th class="black--text title">Enrolled</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="item in courses" :key="item.Fin">
-                                    <td class="subtitle-1">
-                                        <v-avatar size="15" :color="item.color" class="mr-3"></v-avatar>{{ item.Fin }}</td>
-                                    <td>{{ item.code }}</td>
-                                    <td>{{ item.stream }}</td>
-                                    <td>{{ item.term }}</td>
-                                    <td>{{ item.date }}</td>
-                                    <td>{{ item.enrolled }}</td>
+                                     
+                                        <td class="subtitle-1">
+                                            <router-link :to="item.to">
+                                                <v-avatar size="15" :color="item.color" class="mr-3"></v-avatar>
+                                            </router-link>
+                                        {{ item.Fin }}</td>
+                                        
+                                        <td>{{ item.code }}</td>
+                                        <td>{{ item.stream }}</td>
+                                        <td>{{ item.term }}</td>
+                                        <td>{{ item.date }}</td>
+                                        <td>{{ item.enrolled }}</td>
+                                     
                                     </tr>
+                                   
                                 </tbody>
                             </template>
                         </v-simple-table>
@@ -49,7 +56,7 @@
             </div>  
 
             <!-- side note with calendar view     -->
-            <div class="notification">
+            <div class="notification mr-11" style="width:280px;">
                 <rightNote />
             </div>
         </div>
@@ -84,8 +91,8 @@ export default {
         ],
 
         courses: [
-            {color: 'red lighten-2', Fin: 'Financial Accounting', code: 'BUS101', stream: 'A', term: 'Winter', date: '09/12/2019', enrolled: 'Yes'},
-            {color: 'green', Fin: 'Elements of Banking', code: 'FIN102', stream: 'F', term: 'Summer', date: '05/02/2009', enrolled: 'No'}
+            {color: 'red lighten-2', Fin: 'Financial Accounting', code: 'BUS101', stream: 'A', term: 'Winter', date: '09/12/2019', enrolled: 'Yes', to: '/instructor/home'},
+            {color: 'green', Fin: 'Elements of Banking', code: 'FIN102', stream: 'F', term: 'Summer', date: '05/02/2009', enrolled: 'No', to:'/instructor/home'}
         ],
 
 
@@ -98,7 +105,7 @@ export default {
 
 <style scoped>
 .snackbar {
-    height: 100vh;
+    height: 120vh;
 }
 
 .divider {

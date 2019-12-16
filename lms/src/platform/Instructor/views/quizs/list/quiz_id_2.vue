@@ -23,15 +23,14 @@
             </div>
 
             <div class="d-flex justify-lg-space-between">
-                <h2 class="display-2 mb-3">Assignment 1</h2>
+                <h2 class="display-2 mb-3">Quiz 2</h2>
                 <v-spacer></v-spacer>
-                <v-btn color="blue" class="font-weight-bold" @click.stop="terms = true" :disabled="terms" dark depressed>Mark sumitted Work</v-btn>
-                 <v-btn color="grey" class="ml-3 font-weight-bold" @click.stop="terms = true" :disabled="terms" dark depressed>Edit</v-btn>
+                <v-btn color="blue" @click.stop="terms = true" :disabled="terms" dark depressed>Start Quiz</v-btn>
             </div>
 
             <div class="d-flex justify-space-between mt-7">
                 <!-- display after submit is pressed -->
-                <p>Points: 10</p>
+                <p v-if="terms">Points: 10</p>
                 <v-spacer></v-spacer>
                 <p><strong>Due:</strong> 17 July 2019 22:59</p>
                 </div>
@@ -148,10 +147,10 @@
 </template>
 
 <script> 
-import dheader from '../../../../components/dheader'
-import rightNote from '../../../../components/notification1'
-import snackbar from '../../../../components/snackbar'
-import sidebar from '../../../../components/sidebar'
+import dheader from '../../../components/dheader'
+import rightNote from '../../../components/notification1'
+import snackbar from '../../../components/snackbar'
+import sidebar from '../../../components/sidebar'
 
   export default {
     components: {
@@ -170,17 +169,17 @@ import sidebar from '../../../../components/sidebar'
             {
                 text: 'Dashboard',
                 disabled: false,
-                href: '/instructor',
+                href: '/student',
             },
             {
                 text: 'Home',
                 disabled: false,
-                href: '/instructor/home',
+                href: '/student/home',
             },
             {
                 text: 'Assignments',
                 disabled: false,
-                href: '/instructor/assignments',
+                href: '/student/assignments',
             },
             {
                 text: '01',

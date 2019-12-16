@@ -1,10 +1,10 @@
 <template>
-  <div class="home">
+  <div class="assignment">
     <dheader />
     
     <!-- flex wrapper -->
-    <div class="wrapper d-flex justify-lg-space-between">
-        <div class="snackbar">
+    <div class="wrapper d-flex justify-sm-space-between">
+        <div class="snackbar" :class="{'snackbarlong' : terms ===true}">
             <snackbar />
         </div>
 
@@ -13,7 +13,7 @@
         </div>
     
 
-        <div class="main_content">
+        <div class="main_content mr-12">
             <div class="divider">
                 <v-breadcrumbs :items="items" :divider="divider" class="breadcrumb">
                     <template v-if="customDiv" v-slot:divider>
@@ -21,22 +21,44 @@
                     </template>
                 </v-breadcrumbs>
             </div>
-            <v-layout row wrap ml-3 mt-4>
-                <h2 class="display-2 mb-3 ">Course Introduction</h2>
-                <v-spacer/>
-                <v-btn  @click.stop="edit = true" :disabled="edit" text color="#262626" class="mr-8">Edit</v-btn>
-            </v-layout>
-            
-            <v-divider></v-divider>
-            <p class="subtitle-1 mt-6">{{ introduction }}</p>
 
+            <div class="d-flex justify-lg-space-between mt-9">
+                <h2 class="display-2 mb-3">Quiz 1</h2>
+                <v-spacer></v-spacer>
+                <v-btn color="grey" @click.stop="edit = true" :disabled="edit" dark depressed>Edit</v-btn>
+            </div>
+
+            <div class="d-flex justify-space-between mt-7">
+                <!-- display after submit is pressed -->
+                <v-spacer></v-spacer>
+                <p><strong>Due:</strong> 17 July 2019 22:59</p>
+                </div>
+            <v-divider></v-divider>
+            <v-layout row>
+                <v-flex xs12 md5 class="ml-5">
+                    
+                
+            <ol type="1" class="mr-3">
+                <li>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis amet consequatur minima ratione doloribus sunt et suscipit aut, eaque dolore aliquam ab voluptatibus nobis unde impedit temporibus consectetur assumenda saepe!</p>
+                    <ol type="i">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li><br/>
+                        <li>Ducimus maiores in magni fuga accusamus illum quibusdam doloremque quae aut ex aspernatur qui iusto.</li><br/>
+                    </ol>
+               </li>
+               <li>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis amet consequatur minima ratione doloribus sunt et suscipit aut, eaque dolore aliquam ab voluptatibus nobis unde impedit temporibus consectetur assumenda saepe!</p>
+               </li>
+            </ol>
+        </v-flex>
             <!-- display after the submit button is clicked -->
-            <v-card v-if="edit">
+           <v-card v-if="edit">
                    <v-row>
                         <v-col cols="12">
                             <v-col>
                                 <p class="pl-5">Copy and paste or type your submission right here</p>
                                 <form>
+                                <p>Question1</p>
                                 <v-textarea
                                   v-model="textdata" 
                                   type="text"
@@ -113,11 +135,12 @@
                     </div>
                 </v-dialog>
             </v-card>
-            
+                    
+        </v-layout>
         </div>
 
-        <div class="notification mr-11" style="width:280px;">
-            <rightNote />
+        <div class="notification">
+           
         </div>
     </div>
   </div>
@@ -125,30 +148,41 @@
 
 <script> 
 import dheader from '../../../components/dheader'
-import rightNote from '../../../components/notifications2'
+//import rightNote from '../../../components/notification1'
 import snackbar from '../../../components/snackbar'
 import sidebar from '../../../components/sidebar'
 
   export default {
-      components: {
-          dheader,
-          rightNote,
-          snackbar,
-          sidebar
-      },
+    components: {
+        dheader,
+       // rightNote,
+        snackbar,
+        sidebar
+    },
 
-       data: () => ({
+    data: () => ({
         dialog1: false,
         dialog: false,
         edit: false,
+
         items: [
             {
                 text: 'Dashboard',
                 disabled: false,
-                href: '/',
+                href: '/student',
             },
             {
                 text: 'Home',
+                disabled: false,
+                href: '/student/home',
+            },
+            {
+                text: 'Assignments',
+                disabled: false,
+                href: '/student/assignments',
+            },
+            {
+                text: '01',
                 disabled: true,
                 href: '#',
             }
@@ -156,65 +190,39 @@ import sidebar from '../../../components/sidebar'
 
         divider: '>',
         large: false,
-        customDiv: false,
-        introduction: `'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum'`,
-        textdata: '',
-        course: 'course name',
-        id:'4'
+        customDiv: false
     }),
-
-    created() {
-        axios.get('http://localhost:3000/course/1')  
-        .then(res => {
-       this.companies = res.data
-     })
-     .catch(err => {
-       this.errors.push(err);
-     })
-    },
-    methods: {
-        submit() {
-            let formData = new FormData()
-            formData.append('description', this.textdata)
-            formData.append('name', this.course)
-
-            axios.post('http://localhost:3000/course/SEr84Zk4', formData)
-            .then(res =>{
-              this.dialog = true
-            }).catch(err => {
-              this.errors.push(error);
-            })
-        }
-
-    }
   }
 </script>
 
 <style scoped>
 .snackbar {
-    height: 100vh;
+    height: 110vh;
+}
+
+.snackbarlong {
+    height: 190vh;
 }
 
 .sidebar {
     position: relative;
     height: 100%;
-    width: 70px;
-    padding: 100px 0;
+    width: 20px;
+    padding: 90px 0;
     font-size: 25px;    
 }
 
 .main_content {
     padding: 30px;
-    width: 55%;
+    width: 70%;
     position: relative;
-    left: 7%;
+    left: 3%;
     margin: 30px 80px;
 } 
 
 .notification {
     position: relative;
 }
-
 
 .btndisable {
     color: grey;
@@ -247,7 +255,7 @@ import sidebar from '../../../components/sidebar'
  }
 
  .modal {
-    height: 400px !important;
+    height: 700px !important;
     text-align: center;
 }
 

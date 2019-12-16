@@ -55,6 +55,21 @@ export default [
     component: home
   },
   {
+    path: '/instructor/quiz',
+    name: 'quiz-menu',
+    component: () => import('./views/quizs/quiz_manu.vue')
+  },
+  {
+    path: '/instructor/quiz/quiz-1',
+    name: 'quiz-1',
+    component: () => import('./views/quizs/list/quiz_id.vue')
+  },
+  {
+    path: '/instructor/quiz/quiz-2',
+    name: 'quiz-2',
+    component: () => import('./views/quizs/list/quiz_id_2.vue')
+  },
+  {
     path: '/instructor/profile',
     name: 'profile',
     component: () => import('./views/profile.vue')
@@ -85,14 +100,32 @@ export default [
     component: () => import('./views/course/activities/assignments.vue')
   },
   {
-    path: '/instructor/assignment',
-    name: 'assignment',
-    component: () => import('./views/course/activities/id/assignment.vue')
+    path: '/instructor/assignment_1',
+    name: 'assignment-1',
+    component: () => import('./views/course/activities/id/assignment_1.vue')
   },
   {
-    path: '/instructor/assignment/view-submitted',
-    name: 'assignment',
-    component: () => import('./views/course/activities/mark/view_submitted_all.vue')
+    path: '/instructor/assignment_2',
+    name: 'assignment-2',
+    component: () => import('./views/course/activities/id/assignment_2.vue')
+  },
+  {
+    path: '/instructor/assignment_3',
+    name: 'assignment-3',
+    component: () => import('./views/course/activities/id/assignment_3.vue')
+  },
+
+  // marks
+  {
+    path: '/instructor/marks/all-view-submitted',
+    name: 'marks',
+    component: () => import('./views/course/activities/mark_1/view_submitted_all.vue')
+  },
+
+  {
+    path: '/instructor/marks/all-view-submitted/student_id',
+    name: 'marks',
+    component: () => import('./views/course/activities/mark_1/id/submitted.vue')
   },
   {
     path: '/instructor/students',

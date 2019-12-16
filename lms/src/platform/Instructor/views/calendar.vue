@@ -236,7 +236,7 @@ import snackbar from '../components/snackbar'
           {
               text: 'Dashboard',
               disabled: false,
-              href: '/',
+              href: '/instructor',
           },
           {
               text: 'Home',

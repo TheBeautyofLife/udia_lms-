@@ -1,8 +1,10 @@
 <template>
     <div class="upComing">
-        <v-card flat class=" not-card ma-4 pl-6">
-            <h3 class="d-inline-block mr-12">Up Coming</h3>
-            <v-btn text class="orange--text d-inline-block pa-3" to="/calendar">View Calendar</v-btn>
+        <v-card flat class=" not-card ma-4 pr-8">
+           <v-layout row justify-start align-center>
+                <h3 class="mr-4 ml-4">Up Coming</h3>
+                 <v-btn text small color="#038A99" to="/instructor/calendar">View Calendar</v-btn>
+            </v-layout>
             <v-divider></v-divider>
             <p class="grey--text">Nothing for the next week</p>
             <v-icon size="70"></v-icon>

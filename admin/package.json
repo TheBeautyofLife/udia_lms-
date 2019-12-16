@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "router": "^1.3.3",
+    "tiptap-vuetify": "^2.8.0",
     "vue": "^2.6.10",
     "vue-material-design-icons": "^4.1.0",
     "vue-router": "^3.0.3",

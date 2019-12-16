@@ -146,7 +146,7 @@ export default {
 }
 
 .snackbar {
-    height: 100vh;
+    height: 120vh;
     position: relative;
     top: -25px;
     left: -26px;

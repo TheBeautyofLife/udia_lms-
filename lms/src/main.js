@@ -5,8 +5,8 @@ import VueHtmlToPaper from 'vue-html-to-paper'
 import vuetify from './plugins/vuetify'
 import router from './router'
 import store from './store/store'
-import './registerServiceWorker'
 
+Vue.use(VueHtmlToPaper, options)
 const options= {
   name: '_blank',
   specs: [
@@ -21,13 +21,13 @@ const options= {
   ]
 }
 
-Vue.use(VueHtmlToPaper, options)
+
 
 Vue.config.productionTip = false
 
 new Vue({
-  vuetify,
   router,
   store,
+  vuetify,
   render: h => h(App)
 }).$mount('#app')

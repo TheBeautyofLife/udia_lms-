@@ -9,7 +9,7 @@
         <v-menu close-on-click close-on-content-click offset-y>
             <template v-slot:activator="{ on }">
                 <v-avatar color="grey" size="80" v-on="on">
-                    <v-img src="/img/other/student.jpeg" @click="index = !index"></v-img>
+                    <v-img src="/img/other/lecturer.png" @click="index = !index"></v-img>
                 </v-avatar>
             </template>
 

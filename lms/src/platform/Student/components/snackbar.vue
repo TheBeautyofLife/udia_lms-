@@ -1,13 +1,9 @@
 <template>
   <div class="snackbar">
       <v-navigation-drawer expand-on-hover clipped permanent color="#038A99">
-          <template v-slot:prepend>
-              <v-list> 
-                <v-list-item>
-                    <v-img class="img ma-2" :src="require('../../../assets/logo.svg')" width="20" height="auto">
-                    </v-img>
-                </v-list-item>
-              </v-list>
+            <template v-slot:prepend>
+              <v-img class="img ma-2" :src="require('../../../assets/logo.svg')"  height="auto" style="width:70px !important;">
+              </v-img>
           </template>
 
           <!-- <v-divider /> -->
