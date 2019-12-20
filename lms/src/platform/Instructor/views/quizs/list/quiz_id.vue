@@ -167,14 +167,6 @@ import sidebar from '../../../components/sidebar'
                     <br /><br />
 
                   2. What are these "great oppressions" preparing the world for? <strong>(p. 5)</strong> <br /><br />
-                
-                  3.  Describe the realtionship between the Most Great Civilization, the Most Great Justice and the Most Great Peace.
-                     What is the Great Peace mentioned in the opening sentence of The Promise of World Peace <strong>(p. 7)</strong><br /><br />
-               
-                  4.What were the changes made against Faith? <strong>(p.7) </strong> 
-                    <br /><br />What is Eclectism? <br />
-                    How does it differ from Syncretism? <br />
-                    How would you answer these charges? <br />
                     
                 `
     }),
