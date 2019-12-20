@@ -25,7 +25,7 @@
             <div class="d-flex justify-lg-space-between mt-6">
                 <h2 class="display-2 mb-3">Quiz 1</h2>
                 <v-spacer></v-spacer>
-                <v-btn color="blue" class="font-weight-bold" to="/instructor/marks/all-view-submitted"  dark depressed>Mark Quiz</v-btn>
+                <v-btn color="blue" class="font-weight-bold" to="/instructor/quiz/mark/"  dark depressed>Mark Quiz</v-btn>
                  <v-btn color="grey" class="ml-3 font-weight-bold" @click="editQues"  dark depressed>Edit</v-btn>
             </div>
 

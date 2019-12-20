@@ -24,7 +24,7 @@
 
             <div class="d-flex justify-lg-space-between mt-6">
                 <v-layout column>
-                    <h2 class="display-1 mb-3">Assignment 1</h2> 
+                    <h2 class="display-1 mb-3">Quiz~ 1</h2> 
                 </v-layout>
             </div>
 

@@ -23,7 +23,7 @@
             </div>
 
             <div class="d-flex justify-lg-space-between mt-6">
-                <h2 class="display-2 mb-3">Assignment 1</h2>
+                <h2 class="display-2 mb-3">Quiz 1</h2>
                 <v-spacer></v-spacer>
             </div>
 
@@ -111,7 +111,7 @@ import sidebar from '../../../../components/sidebar'
                 status: 'submitted',
                 colour: 'green',
                 icon: 'mdi-check-circle',
-                to: '/instructor/marks/all-view-submitted/student_id/'
+                to: '/instructor/quiz/mark/1/help'
             },
              {
                 firstname: 'Lucy',

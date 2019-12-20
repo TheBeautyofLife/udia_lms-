@@ -82,7 +82,11 @@ export default [
     name: 'quiz-2',
     component: () => import('./views/quizs/list/res/id/quiz_student-id.vue')
   },
-
+  {
+    path: '/instructor/quiz/mark/1/help',
+    name: 'quiz-2',
+    component: () => import('./views/quizs/list/res/submitted_help.vue')
+  },
   {
     path: '/instructor/profile',
     name: 'profile',
