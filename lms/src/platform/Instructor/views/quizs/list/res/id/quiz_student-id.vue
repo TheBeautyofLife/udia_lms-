@@ -162,10 +162,29 @@
 
             <v-layout justify-end>
                  <v-btn color="grey" class="ml-3 mt-7 font-weight-medium" @click="editQues"  dark depressed>Edit</v-btn> 
-              <v-btn color="#038A99" class="ml-3 mt-7 font-weight-medium" @click="editQues_submitted"  dark depressed>Next</v-btn> 
+              <v-btn color="#038A99" class="ml-3 mt-7 font-weight-medium" @click="editQues_submitted"  dark depressed>Submit</v-btn> 
             </v-layout>
 
+          <v-dialog v-model="confirm" max-width="600">
+                     <div class="white modal">
+                        <div class="close">
+                            <v-btn class="icon ma-2 mr-8" icon  @click.stop="confirm = false">
+                                <v-icon size="30">mdi-close</v-icon>
+                            </v-btn>
+                        </div>
+                        <v-divider></v-divider>
 
+                        <v-layout column wrap mt-12 justify-center>
+                            <v-icon color="orange" size="90">mdi-cloud-check</v-icon>
+                            <h3>You have Successfully Submitted</h3>
+                            <p>You can click here to go back</p>
+                        </v-layout>
+
+                        <div class="buttons d-flex justify-center align-center">
+                            <v-btn dark depressed type="submit" value="submit" class="blue ma-10" to="/instructor/quiz/mark/">Go Back</v-btn>
+                        </div>
+                    </div>
+                </v-dialog>
         </div>
 
         <div class="notification mr-11" style="width:180px;">
@@ -196,6 +215,7 @@ import sidebar from '../../../../../components/sidebar'
     data: () => ({
         dialog: false,
         isEditingQues: true,
+        confirm: false,
 
         extensions: [
       History,
@@ -290,8 +310,8 @@ import sidebar from '../../../../../components/sidebar'
         },
         editQues_submitted () {
             this.isEditingQues = false;
-            // this.dialog = true;
-            this.$router.push({path: '/instructor/marks/all-view-submitted/student_id/set2',})
+             this.confirm = true;
+           // this.$router.push({path: '/instructor/quiz/mark/',})
         }
     }
   }
